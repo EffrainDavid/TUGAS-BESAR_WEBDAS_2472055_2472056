@@ -1,455 +1,274 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Explore Thailand</title>
+<!-- TUGAS BESAR WEB DASAR
+[2472055] - [2472056] -->
 
-  <!-- Google Font -->
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Thailand</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family:'Poppins', sans-serif;
-      background:#fff;
-      color:#222;
-    }
-
-    /* NAVBAR */
-    nav{
-      width:100%;
-      padding:20px 8%;
-      position:fixed;
-      top:0;
-      left:0;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      z-index:1000;
-      transition:0.4s;
-    }
-
-    nav.scrolled{
-      background:#0f172a;
-      box-shadow:0 2px 10px rgba(0,0,0,0.2);
-    }
-
-    .logo{
-      color:white;
-      font-size:28px;
-      font-weight:700;
-    }
-
-    .logo span{
-      color:#f59e0b;
-    }
-
-    nav ul{
-      display:flex;
-      gap:30px;
-      list-style:none;
-    }
-
-    nav ul li a{
-      color:white;
-      text-decoration:none;
-      font-weight:500;
-      transition:0.3s;
-    }
-
-    nav ul li a:hover{
-      color:#f59e0b;
-    }
-
-    /* HERO */
-    .hero{
-      width:100%;
-      height:100vh;
-      background:
-      linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-      url('https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=1600&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      align-items:center;
-      padding:0 8%;
-      color:white;
-    }
-
-    .hero-text{
-      max-width:650px;
-    }
-
-    .hero-text h1{
-      font-size:70px;
-      line-height:1.1;
-      margin-bottom:20px;
-    }
-
-    .hero-text p{
-      font-size:18px;
-      margin-bottom:30px;
-      line-height:1.7;
-    }
-
-    .btn{
-      display:inline-block;
-      padding:14px 30px;
-      background:#f59e0b;
-      color:white;
-      border-radius:50px;
-      text-decoration:none;
-      margin-right:15px;
-      transition:0.3s;
-      font-weight:500;
-    }
-
-    .btn:hover{
-      background:#d97706;
-      transform:translateY(-3px);
-    }
-
-    .btn-outline{
-      background:transparent;
-      border:2px solid white;
-    }
-
-    .btn-outline:hover{
-      background:white;
-      color:#111;
-    }
-
-    /* SECTION */
-    section{
-      padding:100px 8%;
-    }
-
-    .section-title{
-      text-align:center;
-      margin-bottom:60px;
-    }
-
-    .section-title h2{
-      font-size:42px;
-      color:#0f172a;
-      margin-bottom:10px;
-    }
-
-    .section-title p{
-      color:#666;
-    }
-
-    /* ABOUT */
-    .about{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:50px;
-      align-items:center;
-    }
-
-    .about img{
-      width:100%;
-      border-radius:20px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.2);
-    }
-
-    .about-text h3{
-      font-size:36px;
-      margin-bottom:20px;
-      color:#0f172a;
-    }
-
-    .about-text p{
-      line-height:1.8;
-      color:#555;
-    }
-
-    /* DESTINATION */
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-      gap:30px;
-    }
-
-    .card{
-      background:white;
-      border-radius:20px;
-      overflow:hidden;
-      box-shadow:0 5px 20px rgba(0,0,0,0.08);
-      transition:0.4s;
-    }
-
-    .card:hover{
-      transform:translateY(-10px);
-    }
-
-    .card img{
-      width:100%;
-      height:250px;
-      object-fit:cover;
-    }
-
-    .card-content{
-      padding:25px;
-    }
-
-    .card-content h3{
-      margin-bottom:10px;
-      color:#0f172a;
-    }
-
-    .card-content p{
-      color:#666;
-      line-height:1.6;
-      margin-bottom:20px;
-    }
-
-    /* CULTURE */
-    .culture{
-      background:#0f172a;
-      color:white;
-      text-align:center;
-    }
-
-    .culture h2{
-      font-size:42px;
-      margin-bottom:20px;
-    }
-
-    .culture p{
-      max-width:800px;
-      margin:auto;
-      line-height:1.8;
-      color:#ddd;
-    }
-
-    /* GALLERY */
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-    }
-
-    .gallery img{
-      width:100%;
-      height:250px;
-      object-fit:cover;
-      border-radius:15px;
-      transition:0.4s;
-      cursor:pointer;
-    }
-
-    .gallery img:hover{
-      transform:scale(1.05);
-    }
-
-    /* FOOTER */
-    footer{
-      background:#020617;
-      color:white;
-      text-align:center;
-      padding:30px;
-    }
-
-    .socials{
-      margin-bottom:15px;
-    }
-
-    .socials i{
-      margin:0 10px;
-      font-size:20px;
-      cursor:pointer;
-      transition:0.3s;
-    }
-
-    .socials i:hover{
-      color:#f59e0b;
-    }
-
-    /* RESPONSIVE */
-    @media(max-width:900px){
-
-      nav ul{
-        display:none;
-      }
-
-      .hero-text h1{
-        font-size:50px;
-      }
-
-      .about{
-        grid-template-columns:1fr;
-      }
-    }
-
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
+
 <body>
-
-  <!-- NAVBAR -->
   <nav id="navbar">
-    <div class="logo">Explore<span>Thailand</span></div>
 
-    <ul>
-      <li><a href="#">Home</a></li>
+    <a href="#" class="nav-logo">
+      Explore<span>Thailand</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
-      <li><a href="#destination">Destination</a></li>
-      <li><a href="#culture">Culture</a></li>
-      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#destinations">Destinasi</a></li>
+      <li><a href="#gallery">Galeri</a></li>
+      <li><a href="#kuliner">Kuliner</a></li>
+      <li><a href="#tips">Tips</a></li>
     </ul>
+
+    <button class="wishlist-btn" id="openWishlist">
+      ❤ Wishlist (<span id="wishCount">0</span>)
+    </button>
+
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Explore The Beauty of Thailand</h1>
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Explore<br>
+        <em>The Beauty of</em><br>
+        Thailand
+      </h1>
 
-      <p>
+      <p class="hero-sub">
         Discover amazing temples, tropical beaches,
         delicious food, and unforgettable culture
         from the Land of Smiles.
       </p>
 
-      <a href="#" class="btn">Explore Now</a>
-      <a href="#" class="btn btn-outline">Watch Video</a>
+      <div class="hero-ctas">
+        <a href="#destinations" class="btn-primary">
+          Jelajahi Destinasi
+        </a>
+
+        <a href="#gallery" class="btn-outline">
+          Lihat Galeri
+        </a>
+      </div>
+
     </div>
+
+    <div class="hero-scroll-hint">
+      Scroll
+      ↓
+    </div>
+
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
 
-    <div class="section-title">
-      <h2>About Thailand</h2>
-      <p>The heart of Southeast Asia tourism</p>
+    <div class="about-container reveal">
+
+      <div class="about-image">
+        <img src="athailand.jpg" alt="Thailand">
+      </div>
+
+      <div class="about-content">
+
+        <span class="section-tag">
+          About Thailand
+        </span>
+
+        <h2 class="section-title">
+          Mengenal Thailand
+        </h2>
+
+        <p class="about-text">
+          Thailand dikenal sebagai "The Land of Smiles" karena
+          keramahan masyarakatnya. Negara ini terkenal dengan
+          kuil-kuil megah, pantai tropis yang indah, makanan
+          lezat, serta budaya yang kaya dan unik.
+        </p>
+
+        <p class="about-text">
+          Dengan ibu kota Bangkok yang modern dan destinasi
+          wisata terkenal seperti Phuket, Chiang Mai, dan Krabi,
+          Thailand menjadi salah satu tujuan wisata favorit di Asia.
+        </p>
+
+        <div class="about-stats">
+
+          <div class="stat-box">
+            <h3>71 Juta+</h3>
+            <p>Penduduk</p>
+          </div>
+
+          <div class="stat-box">
+            <h3>76</h3>
+            <p>Provinsi</p>
+          </div>
+
+          <div class="stat-box">
+            <h3>40 Juta+</h3>
+            <p>Wisatawan/Tahun</p>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="about">
+  </section>
 
-      <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=1200&auto=format&fit=crop">
+  <section id="destinations">
 
-      <div class="about-text">
-        <h3>A Paradise Full of Culture</h3>
+    <div class="reveal">
 
-        <p>
-          Thailand is famous for its beautiful beaches,
-          stunning temples, rich traditions, and world-famous
-          street food. Millions of tourists visit Thailand
-          every year to enjoy its warm atmosphere and
-          breathtaking destinations.
+      <span class="section-tag">
+        Tempat Wisata
+      </span>
+
+      <h2 class="section-title">
+        Destinasi Terpopuler
+      </h2>
+
+      <p class="section-sub">
+        Temukan tempat-tempat terbaik di Thailand yang wajib
+        masuk daftar perjalananmu.
+      </p>
+
+    </div>
+
+    <div class="filter-bar reveal">
+
+      <button class="filter-btn active" data-filter="all">
+        Semua
+      </button>
+
+      <button class="filter-btn" data-filter="kota">
+        Kota
+      </button>
+
+      <button class="filter-btn" data-filter="pantai">
+        Pantai
+      </button>
+
+      <button class="filter-btn" data-filter="alam">
+        Alam
+      </button>
+
+      <button class="filter-btn" data-filter="budaya">
+        Budaya
+      </button>
+
+    </div>
+
+    <div class="dest-grid reveal" id="destGrid"></div>
+
+  </section>
+
+  <section id="gallery">
+
+    <div class="inner">
+
+      <div class="reveal">
+
+        <span class="section-tag" style="background:rgba(212,175,55,0.15);color:var(--thai-gold);">
+          Galeri
+        </span>
+
+        <h2 class="section-title">
+          Keindahan yang Memukau
+        </h2>
+
+        <p class="section-sub">
+          Setiap sudut Thailand menyimpan pemandangan yang menakjubkan.
         </p>
 
       </div>
 
-    </div>
+      <div class="slider-wrap reveal">
 
-  </section>
+        <div class="slider-track" id="sliderTrack">
 
-  <!-- DESTINATION -->
-  <section id="destination">
-
-    <div class="section-title">
-      <h2>Top Destinations</h2>
-      <p>Most popular places in Thailand</p>
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="card-content">
-          <h3>Bangkok</h3>
-          <p>
-            Thailand’s capital city with beautiful temples,
-            shopping malls, and exciting nightlife.
-          </p>
-
-          <a href="#" class="btn">Read More</a>
         </div>
+
       </div>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?q=80&w=1200&auto=format&fit=crop">
+      <div class="slider-nav" id="sliderNav">
 
-        <div class="card-content">
-          <h3>Phuket</h3>
-          <p>
-            A tropical island famous for crystal-clear beaches
-            and luxury resorts.
-          </p>
+        <button class="slider-arrow" id="slidePrev">
+          ←
+        </button>
 
-          <a href="#" class="btn">Read More</a>
-        </div>
-      </div>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?q=80&w=1200&auto=format&fit=crop">
+        <button class="slider-arrow" id="slideNext">
+          →
+        </button>
 
-        <div class="card-content">
-          <h3>Chiang Mai</h3>
-          <p>
-            Explore mountains, traditional temples,
-            and peaceful northern culture.
-          </p>
-
-          <a href="#" class="btn">Read More</a>
-        </div>
       </div>
 
     </div>
 
   </section>
 
-  <!-- CULTURE -->
-  <section class="culture" id="culture">
+  <section id="kuliner">
 
-    <h2>Thai Culture & Festival</h2>
+    <div class="reveal">
 
-    <p>
-      Thailand is known for its colorful festivals like
-      Songkran and Loi Krathong. The country also has
-      unique traditions, traditional dances, and beautiful
-      Buddhist temples that reflect its rich history.
-    </p>
+      <span class="section-tag">
+        Kuliner Khas
+      </span>
 
-  </section>
+      <h2 class="section-title">
+        Cita Rasa Thailand
+      </h2>
 
-  <!-- GALLERY -->
-  <section id="gallery">
-
-    <div class="section-title">
-      <h2>Gallery</h2>
-      <p>Beautiful moments from Thailand</p>
-    </div>
-
-    <div class="gallery">
-
-      <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1200&auto=format&fit=crop">
-
-      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200&auto=format&fit=crop">
-
-      <img src="https://images.unsplash.com/photo-1526481280695-3c469b9fddb9?q=80&w=1200&auto=format&fit=crop">
-
-      <img src="https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1200&auto=format&fit=crop">
+      <p class="section-sub">
+        Masakan Thailand terkenal dengan perpaduan rempah,
+        segar, pedas, dan manis yang harmonis.
+      </p>
 
     </div>
 
+    <div class="food-grid reveal" id="foodGrid"></div>
+
   </section>
 
-  <!-- FOOTER -->
+  <section id="tips">
+
+    <div class="reveal">
+
+      <span class="section-tag">
+        Panduan Wisata
+      </span>
+
+      <h2 class="section-title">
+        Tips Perjalanan ke Thailand
+      </h2>
+
+      <p class="section-sub">
+        Persiapkan perjalananmu dengan informasi penting berikut ini.
+      </p>
+
+    </div>
+
+    <div class="accordion reveal" id="accordion"></div>
+
+  </section>
+
   <footer>
 
     <div class="socials">
@@ -459,26 +278,535 @@
       <i class="fab fa-twitter"></i>
     </div>
 
-    <p>© 2026 Explore Thailand | Created for Web Design Project</p>
+    <p>© Explore Thailand | 2472056 - 2472055</p>
 
   </footer>
 
-  <!-- JAVASCRIPT -->
+  <div class="modal-overlay" id="wishModal">
+
+    <div class="modal-box">
+
+      <button class="modal-close" id="closeModal">
+        x
+      </button>
+
+      <h2 class="modal-title">
+        ❤ Wishlist Saya
+      </h2>
+
+      <ul class="wish-list" id="wishList"></ul>
+
+      <div class="empty-wish" id="emptyWish" style="display:none">
+        Belum ada destinasi disimpan.
+        <br>
+        Klik ikon ♡ pada kartu destinasi!
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="toast" id="toast"></div>
+
   <script>
+    $(document).ready(function () {
 
-    const navbar = document.getElementById("navbar");
+      const destinations = [
+        {
+          id: 1,
+          name: "Wat Phra Kaew",
+          category: "budaya",
+          city: "Bangkok",
+          desc: "Kuil Buddha Zamrud yang menjadi simbol spiritual Thailand.",
+          rating: 4.9,
+          badge: "Ikonik",
+          image: "dthailand1.jpg"
+        },
+        {
+          id: 2,
+          name: "Maya Bay",
+          category: "pantai",
+          city: "Krabi",
+          desc: "Pantai eksotis dengan pasir putih dan air laut jernih.",
+          rating: 4.8,
+          badge: "Populer",
+          image: "dthailand2.jpg"
+        },
+        {
+          id: 3,
+          name: "Doi Inthanon",
+          category: "alam",
+          city: "Chiang Mai",
+          desc: "Puncak tertinggi Thailand dengan panorama luar biasa.",
+          rating: 4.7,
+          badge: null,
+          image: "dthailand3.jpg"
+        },
+        {
+          id: 4,
+          name: "Chatuchak Market",
+          category: "kota",
+          city: "Bangkok",
+          desc: "Pasar akhir pekan terbesar dan paling terkenal di Thailand.",
+          rating: 4.6,
+          badge: null,
+          image: "dthailand4.jpg"
+        },
+        {
+          id: 5,
+          name: "Patong Beach",
+          category: "pantai",
+          city: "Phuket",
+          desc: "Pantai terkenal dengan kehidupan malam yang meriah.",
+          rating: 4.5,
+          badge: null,
+          image: "dthailand5.jpg"
+        },
+        {
+          id: 6,
+          name: "White Temple",
+          category: "budaya",
+          city: "Chiang Rai",
+          desc: "Kuil putih modern yang menjadi ikon wisata Thailand.",
+          rating: 4.8,
+          badge: "Unik",
+          image: "dthailand6.jpg"
+        }
+      ];
 
-    window.addEventListener("scroll", () => {
+      const foods = [
+        {
+          name: "Pad Thai",
+          image: "kthailand1.jpg",
+          desc: "Mi goreng khas Thailand."
+        },
+        {
+          name: "Tom Yum",
+          image: "kthailand2.jpg",
+          desc: "Sup pedas dan asam yang terkenal."
+        },
+        {
+          name: "Mango Sticky Rice",
+          image: "kthailand3.jpg",
+          desc: "Makanan penutup favorit wisatawan."
+        },
+        {
+          name: "Green Curry",
+          image: "kthailand4.jpg",
+          desc: "Kari hijau khas Thailand."
+        }
+      ];
 
-      if(window.scrollY > 50){
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
+      const tips = [
+        {
+          q: "Kapan waktu terbaik ke Thailand?",
+          a: "November hingga Februari adalah musim terbaik untuk berkunjung."
+        },
+        {
+          q: "Transportasi apa yang tersedia di Thailand?",
+          a: "Thailand memiliki BTS Skytrain, MRT, bus, kereta api, taksi, tuk-tuk, serta penerbangan domestik yang mudah digunakan wisatawan."
+        },
+        {
+          q: "Apakah Thailand aman untuk wisatawan?",
+          a: "Secara umum Thailand cukup aman untuk wisatawan. Tetap waspada terhadap barang bawaan dan hindari daerah yang tidak dikenal pada malam hari."
+        },
+      ];
+
+      const slides = [
+        {
+          title: "Bangkok",
+          desc: "Kota metropolitan modern yang penuh budaya.",
+          image: "gthailand1.jpg"
+        },
+        {
+          title: "Phuket",
+          desc: "Pantai tropis yang indah.",
+          image: "gthailand2.jpg"
+        },
+        {
+          title: "Chiang Mai",
+          desc: "Kota pegunungan yang damai.",
+          image: "gthailand3.jpg"
+        }
+      ];
+
+      let wishlist =
+        JSON.parse(localStorage.getItem("thailand_wishlist")) || [];
+
+      function saveWishlist() {
+        localStorage.setItem(
+          "thailand_wishlist",
+          JSON.stringify(wishlist)
+        );
+
+        $("#wishCount").text(wishlist.length);
       }
 
-    });
+      saveWishlist();
 
+
+      function renderDestinations(filter = "all") {
+
+        $("#destGrid").empty();
+
+        const filtered =
+          filter === "all"
+            ? destinations
+            : destinations.filter(
+              d => d.category === filter
+            );
+
+        filtered.forEach(dest => {
+
+          const saved =
+            wishlist.includes(dest.id);
+
+          const card = `
+                <div class="dest-card">
+
+                  ${dest.badge ?
+              `<span class="card-badge">${dest.badge}</span>`
+              : ""
+            }
+
+                  <div class="card-art">
+                      <img src="${dest.image}" alt="${dest.name}">
+                  </div>
+
+                  <div class="card-body">
+
+                      <div class="card-category">
+                          ${dest.category}
+                      </div>
+
+                      <h3 class="card-title">
+                          ${dest.name}
+                      </h3>
+
+                      <p class="card-desc">
+                          ${dest.desc}
+                      </p>
+
+                      <div class="card-footer">
+
+                          <div class="card-rating">
+                              <span class="star">★</span>
+                              ${dest.rating}
+                          </div>
+
+                          <button
+                              class="wishlist-toggle ${saved ? 'saved' : ''}"
+                              data-id="${dest.id}">
+                              ${saved ? '❤' : '♡'}
+                          </button>
+
+                      </div>
+
+                  </div>
+
+                </div>
+              `;
+
+          $("#destGrid").append(card);
+
+        });
+      }
+
+      renderDestinations();
+
+      $(".filter-btn").on("click", function () {
+
+        $(".filter-btn").removeClass("active");
+
+        $(this).addClass("active");
+
+        renderDestinations(
+          $(this).data("filter")
+        );
+
+      });
+
+      $(document).on(
+        "click",
+        ".wishlist-toggle",
+        function () {
+
+          const id =
+            parseInt($(this).data("id"));
+
+          if (wishlist.includes(id)) {
+
+            wishlist =
+              wishlist.filter(
+                item => item !== id
+              );
+
+          } else {
+
+            wishlist.push(id);
+
+          }
+
+          saveWishlist();
+
+          renderDestinations(
+            $(".filter-btn.active")
+              .data("filter")
+          );
+
+          showToast(
+            "Wishlist berhasil diperbarui"
+          );
+
+        }
+      );
+
+      $("#openWishlist").on("click", function () {
+
+        $("#wishList").empty();
+
+        if (wishlist.length === 0) {
+
+          $("#emptyWish").show();
+
+        } else {
+
+          $("#emptyWish").hide();
+
+          wishlist.forEach(id => {
+
+            const item =
+              destinations.find(
+                d => d.id === id
+              );
+
+            $("#wishList").append(`
+                <li class="wish-item">
+                  ${item.name}
+                </li>
+              `);
+
+          });
+
+        }
+
+        $("#wishModal").addClass("open");
+
+      });
+
+      $("#closeModal").on("click", function () {
+
+        $("#wishModal").removeClass("open");
+
+      });
+
+      foods.forEach(food => {
+
+        $("#foodGrid").append(`
+
+            <div class="food-card">
+
+              <div class="food-image">
+                <img src="${food.image}" alt="${food.name}">
+              </div>
+
+              <div class="food-name">
+                ${food.name}
+              </div>
+
+              <p class="food-desc">
+                ${food.desc}
+              </p>
+
+            </div>
+
+          `);
+
+      });
+
+      tips.forEach(tip => {
+
+        $("#accordion").append(`
+
+            <div class="accordion-item">
+
+              <button class="accordion-header">
+
+                ${tip.q}
+
+                <span class="accordion-icon">
+                  +
+                </span>
+
+              </button>
+
+              <div class="accordion-body">
+                ${tip.a}
+              </div>
+
+            </div>
+
+          `);
+
+      });
+
+      $(document).on(
+        "click",
+        ".accordion-header",
+        function () {
+
+          const body =
+            $(this).next();
+
+          $(".accordion-body")
+            .not(body)
+            .slideUp();
+
+          body.slideToggle();
+
+        }
+      );
+
+      slides.forEach(slide => {
+
+        $("#sliderTrack").append(`
+
+            <div class="slide">
+
+              <img
+                src="${slide.image}"
+                alt="${slide.title}"
+                class="slide-image"
+              >
+
+              <div class="slide-overlay"></div>
+
+              <div class="slide-content">
+
+                <h3>${slide.title}</h3>
+
+                <p>${slide.desc}</p>
+
+              </div>
+
+            </div>
+
+          `);
+
+      });
+
+      let currentSlide = 0;
+
+      function showSlide(index) {
+
+        currentSlide = index;
+
+        $("#sliderTrack").css(
+          "transform",
+          `translateX(-${index * 100}%)`
+        );
+
+      }
+
+      $("#slideNext").on("click", function () {
+
+        currentSlide++;
+
+        if (currentSlide >= slides.length) {
+          currentSlide = 0;
+        }
+
+        showSlide(currentSlide);
+
+      });
+
+      $("#slidePrev").on("click", function () {
+
+        currentSlide--;
+
+        if (currentSlide < 0) {
+          currentSlide =
+            slides.length - 1;
+        }
+
+        showSlide(currentSlide);
+
+      });
+
+      setInterval(function () {
+
+        $("#slideNext").click();
+
+      }, 5000);
+
+      function showToast(message) {
+
+        $("#toast")
+          .text(message)
+          .addClass("show");
+
+        setTimeout(function () {
+
+          $("#toast")
+            .removeClass("show");
+
+        }, 2500);
+
+      }
+
+      function revealElements() {
+
+        $(".reveal").each(function () {
+
+          const top =
+            this.getBoundingClientRect().top;
+
+          if (top < window.innerHeight - 80) {
+
+            $(this).addClass("visible");
+
+          }
+
+        });
+
+      }
+
+      revealElements();
+
+      $(window).on(
+        "scroll",
+        revealElements
+      );
+
+      $(window).on("scroll", function () {
+
+        if ($(this).scrollTop() > 50) {
+
+          $("#navbar").css(
+            "background",
+            "rgba(26,18,1,.98)"
+          );
+
+        } else {
+
+          $("#navbar").css(
+            "background",
+            "rgba(26,18,1,.92)"
+          );
+
+        }
+
+      });
+
+      $("#hamburger").on("click", function () {
+
+        $("#navLinks").toggleClass("open");
+
+      });
+
+    });
   </script>
 
 </body>
+
 </html>
