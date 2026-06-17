@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Thailand</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav id="navbar">
+
+        <a href="index.html" class="nav-logo">
+            Explore<span>Thailand</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="destination.html">Destinasi</a></li>
+            <li><a href="galery.html">Galeri</a></li>
+            <li><a href="kuliner.html">Kuliner</a></li>
+            <li><a href="index.html#tips">Tips</a></li>
+            <li><a href="sejarah.html">Sejarah</a></li>
+        </ul>
+
+        <button class="wishlist-btn" id="openWishlist">
+            ❤ Wishlist (<span id="wishCount">0</span>)
+        </button>
+
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </nav>
+    <section id="destinations">
+
+        <div class="reveal">
+
+            <span class="section-tag">
+                Tempat Wisata
+            </span>
+
+            <h2 class="section-title">
+                Destinasi Terpopuler
+            </h2>
+
+            <p class="section-sub">
+                Temukan tempat-tempat terbaik di Thailand yang wajib
+                masuk daftar perjalananmu.
+            </p>
+
+        </div>
+
+        <div class="filter-bar reveal">
+
+            <button class="filter-btn active" data-filter="all">
+                Semua
+            </button>
+
+            <button class="filter-btn" data-filter="kota">
+                Kota
+            </button>
+
+            <button class="filter-btn" data-filter="pantai">
+                Pantai
+            </button>
+
+            <button class="filter-btn" data-filter="alam">
+                Alam
+            </button>
+
+            <button class="filter-btn" data-filter="budaya">
+                Budaya
+            </button>
+
+        </div>
+
+        <div class="dest-grid reveal" id="destGrid"></div>
+
+    </section>
+    <footer>
+
+        <div class="socials">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-twitter"></i>
+        </div>
+
+        <p>© Explore Thailand | 2472056 - 2472055</p>
+
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

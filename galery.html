@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Thailand</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav id="navbar">
+
+        <a href="index.html" class="nav-logo">
+            Explore<span>Thailand</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="destination.html">Destinasi</a></li>
+            <li><a href="galery.html">Galeri</a></li>
+            <li><a href="kuliner.html">Kuliner</a></li>
+            <li><a href="index.html#tips">Tips</a></li>
+            <li><a href="sejarah.html">Sejarah</a></li>
+        </ul>
+
+        <button class="wishlist-btn" id="openWishlist">
+            ❤ Wishlist (<span id="wishCount">0</span>)
+        </button>
+
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </nav>
+    <section id="gallery">
+
+        <div class="inner">
+
+            <div class="reveal">
+
+                <span class="section-tag" style="background:rgba(212,175,55,0.15);color:var(--thai-gold);">
+                    Galeri
+                </span>
+
+                <h2 class="section-title">
+                    Keindahan yang Memukau
+                </h2>
+
+                <p class="section-sub">
+                    Setiap sudut Thailand menyimpan pemandangan yang menakjubkan.
+                </p>
+
+            </div>
+
+            <div class="slider-wrap reveal">
+
+                <div class="slider-track" id="sliderTrack">
+
+                </div>
+
+            </div>
+
+            <div class="slider-nav" id="sliderNav">
+
+                <button class="slider-arrow" id="slidePrev">
+                    ←
+                </button>
+
+
+                <button class="slider-arrow" id="slideNext">
+                    →
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+    <footer>
+
+        <div class="socials">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-twitter"></i>
+        </div>
+
+        <p>© Explore Thailand | 2472056 - 2472055</p>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
